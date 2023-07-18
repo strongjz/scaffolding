@@ -38,6 +38,11 @@ variable "network" {
   default = "default"
 }
 
+variable "enable_google_domain" {
+  type = bool
+  description = "Wheter or not to use google domains for fulcio"
+}
+
 // Storage
 variable "attestation_bucket" {
   type        = string

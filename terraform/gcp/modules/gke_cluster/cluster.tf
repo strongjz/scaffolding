@@ -59,15 +59,6 @@ resource "google_container_cluster" "cluster" {
   remove_default_node_pool = true
   initial_node_count       = 1
 
-  node_config {
-    metadata = {
-      disable-legacy-endpoints = true
-    }
-    tags            = [local.cluster_network_tag]
-    service_account = google_service_account.gke-sa.email
-    oauth_scopes    = ["https://www.googleapis.com/auth/cloud-platform"]
-  }
-
   resource_labels = {
     "env" = var.cluster_name
   }

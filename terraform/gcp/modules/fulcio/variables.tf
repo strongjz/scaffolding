@@ -23,6 +23,11 @@ variable "project_id" {
   }
 }
 
+variable "enable_google_domain" {
+  type = bool
+  description = "Wheter or not to use google domains for fulcio"
+}
+
 variable "region" {
   type        = string
   description = "GCP region"

@@ -29,6 +29,8 @@ module "ca" {
 
 resource "google_dns_record_set" "A_fulcio" {
   name = "fulcio.${var.dns_domain_name}"
+  count = var.enable_google_domain ? 1 : 0
+
   type = "A"
   ttl  = 60
 

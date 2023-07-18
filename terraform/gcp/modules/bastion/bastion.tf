@@ -76,13 +76,13 @@ resource "google_kms_crypto_key_iam_binding" "disk-key" {
 }
 
 resource "google_kms_key_ring" "disk-keyring" {
-  name       = "bastion-disk-keyring"
+  name       = "bastion-disk-keyring-${random_id.suffix.hex}"
   location   = "global"
   depends_on = [google_project_service.service]
 }
 
 resource "google_kms_crypto_key" "disk-key" {
-  name       = "bastion-disk-key"
+  name       = "bastion-disk-key-${random_id.suffix.hex}"
   key_ring   = google_kms_key_ring.disk-keyring.id
   depends_on = [google_kms_key_ring.disk-keyring]
 
