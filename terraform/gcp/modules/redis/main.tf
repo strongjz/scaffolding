@@ -33,7 +33,7 @@ resource "google_project_service" "service" {
 
 // Access to private cluster
 resource "google_compute_global_address" "service_range" {
-  name          = format("%s-priv-ip", var.cluster_name)
+  name          = format("%s-redis-priv-ip", var.cluster_name)
   project       = var.project_id
   purpose       = "VPC_PEERING"
   address_type  = "INTERNAL"
